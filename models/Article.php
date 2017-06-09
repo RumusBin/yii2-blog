@@ -68,7 +68,14 @@ class Article extends \yii\db\ActiveRecord
     public function saveImage($fileName)
     {
         $this->image = $fileName;
+
         return $this->save(false);
+    }
+
+    public function getImage()
+    {
+
+        return ($this->image)?'/uploads/' . $this->image:'/uploads/no-image.png';
     }
 
     public function deleteImage()
